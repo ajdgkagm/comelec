@@ -9,4 +9,3 @@ server/config/service-account.json
 server/config/service-account.json.json
 
 # build folders
-dist/
