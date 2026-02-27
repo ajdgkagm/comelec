@@ -15,16 +15,24 @@ const app: Express = express();
 const port = process.env.PORT || 3001;
 
 // ===== CORS setup =====
+const allowedOrigins = ["http://localhost:5173"]; // your React dev server
 app.use(cors({
-  // origin: "http://localhost:5173",
-  origin: process.env.FRONTEND_URL,
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
 // Parse JSON
 app.use(express.json());
-
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
 // ===== Routes =====
 app.use("/api/dialogflow", dialogflowRouter);
 app.use("/comelec-records", comelecRecordRouter);
