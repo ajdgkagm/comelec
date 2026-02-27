@@ -1,0 +1,76 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #f4f6f8;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Admin link style */
+.adminLink {
+  font-weight: bold;
+  color: #c0392b;
+  text-decoration: none;
+}
+
+/* Auth buttons */
+.authLink {
+  padding: 6px 12px;
+  background-color: #e0e0e0; /* neutral gray */
+  color: #2c3e50;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none; /* remove underline */
+  transition: background-color 0.2s;
+}
+
+.authLink:hover {
+  background-color: #d5d5d5; /* slightly darker on hover */
+}
+
+/* User profile wrapper */
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* User name */
+.userName {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+/* Remove default styles of UserButton */
+.userButtonBox {
+  border-radius: 50% !important;
+  overflow: hidden !important;
+}
+
+.navLink {
+  color: #2c3e50; /* neutral text */
+  text-decoration: none; /* remove underline */
+  font-weight: 500;
+}
+.navLink:hover {
+  text-decoration: none; /* still no underline */
+  opacity: 0.8; /* subtle hover effect */
+}

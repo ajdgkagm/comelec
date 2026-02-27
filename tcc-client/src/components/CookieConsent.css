@@ -1,0 +1,143 @@
+/* Base banner */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #2c3e50;
+  color: white;
+  padding: 12px 15px;
+  display: flex;
+  flex-direction: column; /* Stack on small screens */
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+  box-shadow: 0px -2px 6px rgba(0,0,0,0.2);
+  animation: slideUp 0.5s ease;
+  font-size: 14px;
+}
+
+/* Paragraph text */
+.cookie-banner p {
+  margin: 0;
+  text-align: center;
+}
+
+/* Buttons container */
+.cookie-banner div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Accept all button */
+.btn-accept {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-accept:hover {
+  background-color: #219150;
+}
+
+/* Manage preferences button */
+.btn-manage {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-manage:hover {
+  background-color: #2980b9;
+}
+
+/* Preferences panel */
+.prefs-container {
+  width: 90%; /* fit on mobile */
+  max-width: 400px; /* prevent too wide on desktop */
+  background: #34495e;
+  padding: 15px 20px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+/* Each preference item */
+.pref-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Label spacing */
+.pref-item label {
+  margin-left: 8px;
+  font-size: 14px;
+}
+
+/* Preferences actions */
+.prefs-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap; /* wrap on small screens */
+}
+
+.btn-save {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-save:hover {
+  background-color: #219150;
+}
+
+.btn-cancel {
+  background-color: #bdc3c7;
+  color: #2c3e50;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-cancel:hover {
+  background-color: #95a5a6;
+}
+
+/* Slide animation */
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+/* Mobile tweaks */
+@media (max-width: 500px) {
+  .cookie-banner {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .btn-accept, .btn-manage, .btn-save, .btn-cancel {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  .prefs-container {
+    width: 95%;
+    padding: 12px 15px;
+  }
+}

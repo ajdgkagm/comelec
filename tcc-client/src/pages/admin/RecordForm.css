@@ -1,0 +1,206 @@
+/* Dashboard Layout */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: Inter, Arial, sans-serif;
+}
+
+/* Side Navigation */
+.sidenav {
+  width: 220px;
+  background-color: #0038a8; /* COMELEC Blue */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+}
+
+.sidenav-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sidenav-header img {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.sidenav-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.sidenav-links a {
+  display: block;
+  color: white;
+  padding: 12px 15px;
+  margin: 5px 0;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.sidenav-links a:hover {
+  background-color: #002060;
+}
+
+/* Main Content */
+.dashboard-main {
+  flex: 1;
+  padding: 40px;
+  background: #f4f6fb;
+}
+
+/* Form Card */
+.form-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  max-width: 600px;
+  margin: auto;
+}
+
+.form-title {
+  margin-bottom: 10px;
+}
+
+.form-desc {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* Inputs */
+.input-field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-field input,
+.input-field select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+}
+
+.input-field label {
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  background: white;
+  padding: 0 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Button */
+.btn-submit {
+  background-color: #0038a8;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: #002060;
+}
+
+/* Success Alert */
+.success-alert {
+  background: #d4edda;
+  color: #155724;
+  padding: 12px 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* test */
+/* Table Card Override */
+.table-card {
+  max-width: 100%;
+  margin: 0;
+}
+
+/* Table Styles */
+.table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table thead {
+  background-color: #0038a8;
+  color: white;
+}
+
+.table th {
+  padding: 14px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.table tbody tr:hover {
+  background-color: #f2f5ff;
+  transition: background 0.2s ease-in-out;
+}
+
+/* Smaller delete button */
+.table .btn-submit {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+/* new for newspage */
+/* Make textarea work with floating label */
+.textarea-field {
+  position: relative;
+}
+
+.textarea-field textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  resize: none;
+}
+
+.textarea-field label {
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  color: #888;
+  font-size: 14px;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+.textarea-field textarea:focus + label,
+.textarea-field textarea:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 10px;
+  background: white;
+  padding: 0 5px;
+  font-size: 12px;
+  color: #2563eb;
+}

@@ -1,0 +1,12 @@
+# dependencies
+node_modules/
+
+# environment files
+server/.env
+
+# google credentials
+server/config/service-account.json
+server/config/service-account.json.json
+
+# build folders
+dist/
