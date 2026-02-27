@@ -18,7 +18,7 @@ export default function Home() {
         <RegistrationForm />
         <StatusCard />
       </section>
-      <ComelecNews />
+      {/* <ComelecNews /> */}
       <KnowledgeBase />
       <Footer />
     </>

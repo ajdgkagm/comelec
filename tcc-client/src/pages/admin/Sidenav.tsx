@@ -18,10 +18,10 @@ export default function Sidenav() {
       </div>
       <nav className="sidenav-links">
         <Link to="/">Dashboard</Link>
-        <Link to="/votersRecord">Add Voter Record</Link>
-        <Link to="/admin">Manage Users</Link>
+        <Link to="/votersRecord">Manage Voter Record</Link>
+        <Link to="/admin">Add Users</Link>
         <Link to="/adminNews">Reports</Link>
-        <Link to="#">Settings</Link>
+        {/* <Link to="#">Settings</Link> */}
       </nav>
     </aside>
   );

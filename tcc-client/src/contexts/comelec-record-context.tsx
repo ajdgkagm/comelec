@@ -12,7 +12,8 @@ export interface ComelecRecord {
   provincePlace: string;
   cityMunicipality: string;
   precintNumber: string;
-  status: string;
+  status: "Active" | "Inactive";
+  inactiveReason?: string; // optional for Inactive
   suffix: string;
 }
 

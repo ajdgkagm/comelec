@@ -119,6 +119,12 @@ function ResultModal({
                     {r.status ?? "Unknown"}
                   </strong>
                 </span>
+                {/* Show inactive reason if status is Inactive */}
+                {r.status === "Inactive" && r.inactiveReason && (
+                  <span style={{ fontStyle: "italic", color: "#a00" }}>
+                    Reason: {r.inactiveReason}
+                  </span>
+                )}
               </div>
             ))}
           </div>
@@ -152,7 +158,13 @@ export default function RegistrationForm(): JSX.Element {
 
       const data = await response.json();
 
-      setMatchedRecords(data);
+      // Filter out or handle inactive reason
+      const filtered = data.map((r: ComelecRecord) => ({
+        ...r,
+        inactiveReason: r.status === "Inactive" ? r.inactiveReason ?? "" : "",
+      }));
+
+      setMatchedRecords(filtered);
       setShowModal(true);
     } catch (error) {
       console.error("Verification error:", error);
