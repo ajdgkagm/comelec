@@ -1,8 +1,10 @@
+/* Container & Layout */
 .news-wrapper {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 40px auto;
   padding: 0 20px;
-  font-family: "Georgia", serif;
+  font-family: "Inter", Arial, sans-serif;
+  color: #1f2937;
 }
 
 .news-main-title {
@@ -10,7 +12,7 @@
   margin-bottom: 40px;
   font-size: 2.5rem;
   font-weight: bold;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid #e5e7eb;
   padding-bottom: 10px;
 }
 
@@ -19,140 +21,162 @@
   background: #fff;
   padding: 30px;
   margin-bottom: 40px;
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
 .featured-article h2 {
   font-size: 2rem;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+}
+
+.featured-article .meta {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 12px;
 }
 
 .featured-content {
   font-size: 1.1rem;
   line-height: 1.7;
-  margin-top: 20px;
 }
 
-.meta {
-  font-size: 0.9rem;
-  color: gray;
-}
-
-/* Grid Layout */
+/* Grid Layout for Other Articles */
 .article-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 25px;
 }
 
 .article-card {
   background: #fff;
   padding: 20px;
-  border-radius: 10px;
-  transition: 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .article-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .article-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.article-card .meta {
+  font-size: 0.85rem;
+  color: #9ca3af;
   margin-bottom: 10px;
 }
 
 .excerpt {
   font-size: 0.95rem;
-  color: #444;
-  margin-top: 10px;
-}
-
-
-
-.news-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Inter, Arial, sans-serif;
-}
-
-.news-layout {
-  display: flex;
-  gap: 30px;
-}
-
-/* Left: News Content */
-.news-content {
-  flex: 2;
-}
-
-/* Featured Article */
-.featured-article {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.featured-article h2 {
-  font-size: 22px;
-  margin-bottom: 8px;
-}
-
-.featured-article .meta {
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 12px;
-}
-
-.featured-content {
-  font-size: 14px;
   line-height: 1.5;
+  color: #374151;
 }
 
-/* Other Articles Grid */
-.article-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
+/* Forum Section */
+.forum-section {
+  margin-top: 60px;
 }
 
-.article-card {
-  background: white;
-  padding: 15px;
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 6px;
+}
+
+/* Forum Form */
+.forum-form {
+  background: #fff;
+  padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
-
-.article-card h3 {
-  font-size: 16px;
-  margin-bottom: 6px;
-}
-
-.article-card .meta {
-  font-size: 11px;
-  color: #999;
-  margin-bottom: 8px;
-}
-
-.excerpt {
-  font-size: 13px;
-  line-height: 1.4;
-}
-
-/* Right: Background Image */
-.news-image {
-  flex: 1;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
 }
 
-.news-image img {
-  max-width: 100%;
-  border-radius: 12px;
-  object-fit: cover;
+.forum-form input,
+.forum-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  resize: vertical;
 }
 
+.forum-form button.btn-submit {
+  align-self: flex-start;
+  background-color: #3b82f6;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.forum-form button.btn-submit:hover {
+  background-color: #2563eb;
+}
+
+/* Forum Posts */
+.forum-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.forum-card {
+  background: #f9fafb;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.forum-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.forum-card .forum-meta {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.forum-card .forum-content {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #374151;
+}
+
+/* Admin Reply Styling */
+.admin-reply {
+  background-color: #e0f2fe;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #0369a1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .article-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  .news-main-title {
+    font-size: 2rem;
+  }
+}

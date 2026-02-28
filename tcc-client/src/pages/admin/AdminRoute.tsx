@@ -1,4 +1,3 @@
-// src/components/AdminRoute.tsx
 import type { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
