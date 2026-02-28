@@ -23,7 +23,7 @@ export default function AdminNews() {
   // Fetch all Admin news
   const fetchNews = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/api/news");
+      const res = await axios.get(`${import.meta.env.VITE_API_BACKEND_URL}/api/news`);
       const adminNews = res.data.filter((post: NewsPost) => post.author === "Admin");
       setNews(adminNews);
     } catch (err) {
@@ -40,7 +40,7 @@ export default function AdminNews() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3001/api/news", {
+      await axios.post(`${import.meta.env.VITE_API_BACKEND_URL}/api/news`, {
         title,
         content,
         author: "Admin",
@@ -66,7 +66,7 @@ export default function AdminNews() {
   const handleDelete = async () => {
     if (!deleteId) return;
     try {
-      await axios.delete(`http://localhost:3001/api/news/${deleteId}`);
+      await axios.delete(`${import.meta.env.VITE_API_BACKEND_URL}/api/news/${deleteId}`);
       fetchNews();
       setShowDeleteModal(false);
       setDeleteId(null);

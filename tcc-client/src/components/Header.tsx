@@ -8,8 +8,9 @@ import {
   useUser,
 } from "@clerk/clerk-react";
 import styles from "./Header.module.css"; // optional CSS module for custom styles
+import type { ReactElement } from "react";
 
-export default function Header(): JSX.Element {
+export default function Header(): ReactElement {
   const { user, isLoaded } = useUser();
 
   const isAdmin =

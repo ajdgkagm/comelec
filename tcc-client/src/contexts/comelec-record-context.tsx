@@ -12,7 +12,7 @@ export interface ComelecRecord {
   provincePlace: string;
   cityMunicipality: string;
   precintNumber: string;
-  status: "Active" | "Inactive";
+  status: string;
   inactiveReason?: string; // optional for Inactive
   suffix: string;
 }
@@ -44,7 +44,7 @@ export const ComelecRecordsProvider = ({
   const addRecord = async (record: ComelecRecord) => {
     try {
       const response = await fetch(
-        "http://localhost:3001/comelec-records",
+        `${import.meta.env.VITE_API_BACKEND_URL}/comelec-records`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -70,7 +70,7 @@ export const ComelecRecordsProvider = ({
   ) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/comelec-records/${id}`,
+        `${import.meta.env.VITE_API_BACKEND_URL}/comelec-records/${id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -98,7 +98,7 @@ export const ComelecRecordsProvider = ({
   const deleteRecord = async (id: string) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/comelec-records/${id}`,
+        `${import.meta.env.VITE_API_BACKEND_URL}/comelec-records/${id}`,
         {
           method: "DELETE",
         }
@@ -121,8 +121,9 @@ export const ComelecRecordsProvider = ({
     if (!user) return;
 
     try {
+      console.log(`---user_id${user.id}`)
       const response = await fetch(
-        `http://localhost:3001/comelec-records/getAllByUserID/${user.id}`
+        `${import.meta.env.VITE_API_BACKEND_URL}/comelec-records/getAllByUserID/${user.id}`
       );
 
       if (!response.ok) throw new Error("Failed to fetch records");

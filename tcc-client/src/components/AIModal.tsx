@@ -16,7 +16,7 @@ export default function AIModal({ onClose }: { onClose: () => void }) {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:3001/api/dialogflow/chat", {
+      const response = await axios.post(`${import.meta.env.VITE_API_BACKEND_URL}/api/dialogflow/chat`, {
         message: input,
       });
 

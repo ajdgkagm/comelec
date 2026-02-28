@@ -7,8 +7,9 @@ import {
   Twitter,
 } from "lucide-react";
 import "./Footer.css"
+import type { ReactElement } from "react";
 
-export default function Footer(): JSX.Element {
+export default function Footer(): ReactElement {
   return (
     <footer className="footer">
       <div className="footer-container">

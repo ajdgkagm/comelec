@@ -19,7 +19,7 @@ export default function NewsPage() {
   }, []);
 
   const fetchNews = async () => {
-    const res = await axios.get("http://localhost:3001/api/news");
+    const res = await axios.get(`${import.meta.env.VITE_API_BACKEND_URL}/api/news`);
     setNews(res.data);
   };
 

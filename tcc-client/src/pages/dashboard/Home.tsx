@@ -5,7 +5,6 @@ import StatusCard from "../../components/StatusCard";
 import KnowledgeBase from "../../components/KnowledgeBase";
 import Footer from "../../components/Footer";
 import CookieConsent from "../../components/CookieConsent";
-import ComelecNews from "../../components/ComelecNews";
 export default function Home() {
   return (
     <>

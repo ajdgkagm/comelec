@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useComelecRecords } from "../contexts/comelec-record-context";
+import { useState, type ReactElement } from "react";
 import type { ComelecRecord } from "../contexts/comelec-record-context";
 
 // Modal component
@@ -134,8 +133,7 @@ function ResultModal({
   );
 }
 
-export default function RegistrationForm(): JSX.Element {
-  const { records } = useComelecRecords();
+export default function RegistrationForm(): ReactElement {
   const [started, setStarted] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -147,7 +145,7 @@ export default function RegistrationForm(): JSX.Element {
 
     try {
       const response = await fetch(
-        `http://localhost:3001/api/verify?firstName=${encodeURIComponent(
+        `${import.meta.env.VITE_API_BACKEND_URL}/api/verify?firstName=${encodeURIComponent(
           firstName
         )}&lastName=${encodeURIComponent(lastName)}`
       );

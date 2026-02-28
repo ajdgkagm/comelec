@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactElement } from "react";
 import { Edit3, ShieldCheck, Search } from "lucide-react";
 
 /* ===== Types ===== */
@@ -67,7 +67,7 @@ function Modal({ isOpen, onClose, data }: ModalProps) {
 }
 
 /* ===== Main Component ===== */
-export default function HowItWorksCard(): JSX.Element {
+export default function HowItWorksCard(): ReactElement {
   const [activeStep, setActiveStep] = useState<StepKey | null>(null);
 
   return (

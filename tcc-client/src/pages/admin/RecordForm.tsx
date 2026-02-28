@@ -145,11 +145,11 @@ export const RecordForm = () => {
                 onChange={(e) => setProvincePlace(e.target.value)}
               >
                 <option value=""></option>
-                <option value="Metro Manila">Metro Manila</option>
-                <option value="Cebu">Cebu</option>
-                <option value="Davao">Davao</option>
+                <option value="Tanauan">Tanauan</option>
+                <option value="Malvar">Malvar</option>
+                <option value="Sto Tomas">Sto Tomas</option>
               </select>
-              <label>Province</label>
+              <label>City</label>
             </div>
 
             <div className="input-field">
@@ -159,11 +159,11 @@ export const RecordForm = () => {
                 onChange={(e) => setCityMunicipality(e.target.value)}
               >
                 <option value=""></option>
-                <option value="Quezon City">Quezon City</option>
-                <option value="Cebu City">Cebu City</option>
-                <option value="Davao City">Davao City</option>
+                <option value="Balele">Balele</option>
+                <option value="Santor">Santor</option>
+                <option value="Natatas">Natatas</option>
               </select>
-              <label>City / Municipality</label>
+              <label>Barangay</label>
             </div>
 
             <button type="submit" className="btn-submit">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactElement } from "react";
 import axios from "axios";
 import "./KnowledgeBase.css";
 
@@ -47,7 +47,7 @@ function AIModal({ onClose }: { onClose: () => void }) {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:3001/api/dialogflow/chat", {
+      const response = await axios.post(`${import.meta.env.VITE_API_BACKEND_URL}/api/dialogflow/chat`, {
         message: input,
       });
 
@@ -133,7 +133,7 @@ function KBModal({ data, onClose }: { data: (typeof kbContent)[KBKey]; onClose: 
 }
 
 /* ===== Main Component ===== */
-export default function KnowledgeBase(): JSX.Element {
+export default function KnowledgeBase(): ReactElement {
   const [activeKB, setActiveKB] = useState<KBKey | null>(null);
 
   return (

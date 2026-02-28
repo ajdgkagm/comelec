@@ -1,4 +1,6 @@
-export default function Hero(): JSX.Element {
+import type { ReactElement } from "react";
+
+export default function Hero(): ReactElement {
   return (
     <section className="hero">
       <div className="hero-content">

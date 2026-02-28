@@ -15,7 +15,7 @@ const app: Express = express();
 const port = process.env.PORT || 3001;
 
 // ===== CORS setup =====
-const allowedOrigins = ["http://localhost:5173"]; // your React dev server
+const allowedOrigins = ["http://localhost:5173", "https://staging.d1kpaup7odwsk5.amplifyapp.com"]; // your React dev server
 app.use(cors({
   origin: function(origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {

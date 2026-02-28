@@ -1,6 +1,7 @@
 import { useMemo, useState, useEffect, useRef } from "react";
 import type { ComelecRecord } from "../../contexts/comelec-record-context";
-import { useTable, Column, CellProps } from "react-table";
+import { useTable } from "react-table";
+import type { Column, CellProps } from "react-table";
 import { useComelecRecords } from "../../contexts/comelec-record-context";
 import "./RecordFormList.css";
 
