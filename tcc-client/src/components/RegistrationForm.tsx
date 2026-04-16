@@ -95,7 +95,7 @@ function ResultModal({
                 }}
               >
                 <strong style={{ fontSize: "16px" }}>
-                  {r.firstName} {r.middleName} {r.lastName} 
+                  {r.firstName} {r.middleName} {r.lastName}
                 </strong>
                 <span>Birth Date: {r.birthDate}</span>
                 <span>
@@ -118,7 +118,7 @@ function ResultModal({
                     {r.status ?? "Unknown"}
                   </strong>
                 </span>
-                {/* Show inactive reason if status is Inactive */}
+
                 {r.status === "Inactive" && r.inactiveReason && (
                   <span style={{ fontStyle: "italic", color: "#a00" }}>
                     Reason: {r.inactiveReason}
@@ -137,17 +137,43 @@ export default function RegistrationForm(): ReactElement {
   const [started, setStarted] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [birthDate, setBirthDate] = useState("");
+  const [error, setError] = useState(""); // ✅ NEW
   const [showModal, setShowModal] = useState(false);
   const [matchedRecords, setMatchedRecords] = useState<ComelecRecord[]>([]);
 
   const handleContinue = async () => {
-    if (!firstName || !lastName) return;
+    setError("");
+
+    // Required fields
+    if (!firstName || !lastName || !birthDate) {
+      setError("All fields are required.");
+      return;
+    }
+
+    // Name validation
+    const nameRegex = /^[A-Za-z\s'-]+$/;
+    if (!nameRegex.test(firstName) || !nameRegex.test(lastName)) {
+      setError("Names should only contain letters.");
+      return;
+    }
+
+    // Birthdate validation
+    const today = new Date();
+    const selectedDate = new Date(birthDate);
+
+    if (selectedDate > today) {
+      setError("Birth date cannot be in the future.");
+      return;
+    }
 
     try {
       const response = await fetch(
         `${import.meta.env.VITE_API_BACKEND_URL}/api/verify?firstName=${encodeURIComponent(
           firstName
-        )}&lastName=${encodeURIComponent(lastName)}`
+        )}&lastName=${encodeURIComponent(
+          lastName
+        )}&birthDate=${encodeURIComponent(birthDate)}`
       );
 
       if (!response.ok) {
@@ -156,7 +182,6 @@ export default function RegistrationForm(): ReactElement {
 
       const data = await response.json();
 
-      // Filter out or handle inactive reason
       const filtered = data.map((r: ComelecRecord) => ({
         ...r,
         inactiveReason: r.status === "Inactive" ? r.inactiveReason ?? "" : "",
@@ -210,6 +235,28 @@ export default function RegistrationForm(): ReactElement {
               onChange={(e) => setLastName(e.target.value)}
             />
           </div>
+
+          <div className="form-group">
+            <label>Birth Date</label>
+            <input
+              type="date"
+              value={birthDate}
+              onChange={(e) => setBirthDate(e.target.value)}
+            />
+          </div>
+
+          {/* ✅ ERROR DISPLAY */}
+          {error && (
+            <p
+              style={{
+                color: "red",
+                fontSize: "14px",
+                marginTop: "10px",
+              }}
+            >
+              {error}
+            </p>
+          )}
 
           <div className="form-actions">
             <button className="secondary" onClick={() => setStarted(false)}>

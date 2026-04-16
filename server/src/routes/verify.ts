@@ -4,24 +4,28 @@ import ComelecRecordModel from "../schema/comelec-record.js";
 const router = Router();
 
 router.get("/", async (req, res) => {
-    const firstName = (req.query.firstName as string)?.trim();
-    const lastName = (req.query.lastName as string)?.trim();
+  const firstName = (req.query.firstName as string)?.trim();
+  const lastName = (req.query.lastName as string)?.trim();
+  const birthDate = (req.query.birthDate as string)?.trim();
 
-    if (!firstName || !lastName) {
-        return res.status(400).json({ error: "Missing firstName or lastName" });
-    }
+  if (!firstName || !lastName || !birthDate) {
+    return res.status(400).json({
+      error: "Missing firstName, lastName, or birthDate",
+    });
+  }
 
-    try {
-        const records = await ComelecRecordModel.find({
-            firstName: { $regex: firstName, $options: "i" },
-            lastName: { $regex: lastName, $options: "i" },
-        });
+  try {
+    const records = await ComelecRecordModel.find({
+      firstName: { $regex: `^${firstName}$`, $options: "i" },
+      lastName: { $regex: `^${lastName}$`, $options: "i" },
+      birthDate: birthDate,
+    });
 
-        res.json(records);
-    } catch (err) {
-        console.error("Verification error:", err);
-        res.status(500).json({ error: "Server error" });
-    }
+    res.json(records);
+  } catch (err) {
+    console.error("Verification error:", err);
+    res.status(500).json({ error: "Server error" });
+  }
 });
 
 export default router;

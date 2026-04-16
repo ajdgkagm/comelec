@@ -4,13 +4,17 @@ const router = Router();
 router.get("/", async (req, res) => {
     const firstName = req.query.firstName?.trim();
     const lastName = req.query.lastName?.trim();
-    if (!firstName || !lastName) {
-        return res.status(400).json({ error: "Missing firstName or lastName" });
+    const birthDate = req.query.birthDate?.trim();
+    if (!firstName || !lastName || !birthDate) {
+        return res.status(400).json({
+            error: "Missing firstName, lastName, or birthDate",
+        });
     }
     try {
         const records = await ComelecRecordModel.find({
-            firstName: { $regex: firstName, $options: "i" },
-            lastName: { $regex: lastName, $options: "i" },
+            firstName: { $regex: `^${firstName}$`, $options: "i" },
+            lastName: { $regex: `^${lastName}$`, $options: "i" },
+            birthDate: birthDate,
         });
         res.json(records);
     }

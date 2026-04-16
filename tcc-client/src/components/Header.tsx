@@ -7,7 +7,7 @@ import {
   UserButton,
   useUser,
 } from "@clerk/clerk-react";
-import styles from "./Header.module.css"; // optional CSS module for custom styles
+import styles from "./Header.module.css";
 import type { ReactElement } from "react";
 
 export default function Header(): ReactElement {
@@ -20,13 +20,14 @@ export default function Header(): ReactElement {
 
   return (
     <header className={styles.header}>
-      <h2 className={styles.title}>🗳️ Balele Precinct Search System</h2>
+      <h2 className={styles.title}><img
+        src="/logo_transparent.png" // 👉 put your logo file in /public folder
+        className={styles.logo}
+      /> Balele Precinct Search System</h2>
 
       <nav className={styles.navLinks}>
         <Link to="/" className={styles.navLink}>Home</Link>
         <Link to="/news" className={styles.navLink}>News</Link>
-
-        {/* Show Admin link only if signed in AND admin */}
         <SignedIn>
           {isLoaded && isAdmin && (
             <Link to="/admin" className={styles.adminLink}>
@@ -34,8 +35,6 @@ export default function Header(): ReactElement {
             </Link>
           )}
         </SignedIn>
-
-        {/* Authentication Buttons */}
         <SignedOut>
           <SignInButton mode="modal">
             <span className={styles.authLink}>Sign In</span>
@@ -45,7 +44,7 @@ export default function Header(): ReactElement {
           </SignUpButton>
         </SignedOut>
 
-        {/* User Profile Button */}
+        {/* User */}
         <SignedIn>
           {isLoaded && user && (
             <div className={styles.userProfile}>
